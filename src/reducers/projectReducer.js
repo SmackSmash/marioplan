@@ -13,6 +13,9 @@ export default (state = INITIAL_STATE, action) => {
     case types.CREATE_PROJECT:
       console.log('created project', action.payload);
       return state;
+    case types.CREATE_PROJECT_ERROR:
+      console.log('create project error', action.payload);
+      return state;
     default:
       return state;
   }
