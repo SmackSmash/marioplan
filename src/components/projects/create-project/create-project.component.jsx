@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { createProject } from '../../../actions/projectActions';
 
-const CreateProject = props => {
+const CreateProject = ({ createProject }) => {
   const [state, setState] = useState({
     title: '',
     content: ''
@@ -12,7 +14,7 @@ const CreateProject = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(state);
+    createProject(state);
   };
 
   return (
@@ -33,11 +35,14 @@ const CreateProject = props => {
           ></textarea>
         </div>
         <div className="input-field">
-          <button className="btn pink lighten-1 z-depth-0">Sign In</button>
+          <button className="btn pink lighten-1 z-depth-0">Create Project</button>
         </div>
       </form>
     </div>
   );
 };
 
-export default CreateProject;
+export default connect(
+  null,
+  { createProject }
+)(CreateProject);

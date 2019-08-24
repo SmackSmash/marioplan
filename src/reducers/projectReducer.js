@@ -1,3 +1,5 @@
+import types from '../actions/types';
+
 const INITIAL_STATE = {
   projects: [
     { id: '1', title: 'help me find peach', content: 'blah blah blah' },
@@ -7,5 +9,11 @@ const INITIAL_STATE = {
 };
 
 export default (state = INITIAL_STATE, action) => {
-  return state;
+  switch (action.type) {
+    case types.CREATE_PROJECT_ASYNC:
+      console.log('created project', action.payload);
+      return state;
+    default:
+      return state;
+  }
 };
