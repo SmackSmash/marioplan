@@ -10,7 +10,7 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case types.CREATE_PROJECT_ASYNC:
+    case types.CREATE_PROJECT:
       console.log('created project', action.payload);
       return state;
     default:
